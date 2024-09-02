@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sad Cat to Happy Cat</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: monospace;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .cat-art {
+            white-space: pre;
+            font-size: 14px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="catArt" class="cat-art">
+        /\_/\  
+      (  o.o  )  
+       > ^ <  
+     /        \  
+    |          |  
+    |          |  
+     \        /  
+      `------'  
+    </div>
+    <p id="catText">The cat looks sad... :(</p>
+    <button onclick="toggleCatMood()">Drupuu, press the button to make the cat happy!</button>
+
+    <script>
+        let isCatHappy = false;
+
+        function toggleCatMood() {
+            const catArt = document.getElementById('catArt');
+            const catText = document.getElementById('catText');
+            const button = document.querySelector('button');
+
+            if (isCatHappy) {
+                catArt.textContent = `
+                /\\_/\\
+               (  o.o  )  
+                > ^ <  
+              /        \\  
+             |          |  
+             |          |  
+              \\        /  
+               \`------'  
+                `;
+                catText.textContent = 'The cat looks sad... :(';
+                button.textContent = 'Drupuu, press the button to make the cat happy!';
+            } else {
+                catArt.textContent = `
+                /\\_/\\
+               ( ^‿^ )  
+                > ^ <  
+               /        \\  
+              |          |  
+              |  ~^~^~   |  
+               \\        /  
+                \`------'  
+                `;
+                catText.textContent = 'The cat is happy now! :)';
+                button.textContent = 'Oh no, press the button to make the cat sad again...';
+            }
+            isCatHappy = !isCatHappy;
+        }
+    </script>
+
+</body>
+</html>
